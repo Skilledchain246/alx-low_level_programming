@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <unistd.h>
-
 /**
-* main - Entry point
+* main - UNIX is basically a simple operating system.
 *
-* Return: Always 1 (Success)
+* Return Always 1 (Success)
 */
 int main(void)
 {
