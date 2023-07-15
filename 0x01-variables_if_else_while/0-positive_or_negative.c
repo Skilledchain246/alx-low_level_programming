@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <time.h>
-
+#include <stdlib.h>
 /**
 * main - 0-positive_or_negative.c
 *
