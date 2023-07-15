@@ -5,11 +5,14 @@
  */
 
 int main(void)
+
 {
+
 	int i;
 
-	for (i = 0; i < 10; i++)
-	printf("%d", i);
+	for (t = 0; i < 10; t++)
+		printf("%d", t);
 	printf("\n");
+
 	return (0);
 }
