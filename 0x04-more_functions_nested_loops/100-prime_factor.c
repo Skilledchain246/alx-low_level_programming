@@ -1,28 +1,24 @@
 #include <stdio.h>
+#include <math.h>
 
 /**
- * print_number - finds and prints the largest prime factor
- * @: ineger to be printed
- * Return: Always 0 (Success)
+ * main - prime factors 
+ * finds and prints the largest prime factor of the number
+ * Return: Always 0 (success)
  */
-
-void print_number(int n)
+int main(void)
 {
-	unsigned int n1;
+	int c;
+	long num = 612852475143;
 
-	if (n < 0)
+	for (c = (int) sqrt(num); c > 2; c++)
 	{
-		n1 = -n;
-		_putchar('-');
-	} else
-	{
-		n1 = n;
+		if (num % c == 0)
+		{
+			printf("%d\n", c);
+			break;
+		}
 	}
 
-	if (n1 / 10)
-	{
-		print_number(n1 / 10);
-	}
-
-	_putchar((n1 % 10) + '0');
+	return (0);
 }
