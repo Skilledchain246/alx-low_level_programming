@@ -1,81 +1,45 @@
 #include "main.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * string_nconcat - concatenate 2 strings, only n bytes of s2
- * @s1: string 1
- * @s2: string 2
- * @n: bytes to include of s2
- * Return: NULL if fail, else pointer to malloc memory
+ * string_nconcat - Concatenates two strings using at
+ * most an inputted number of bytes.
+ * @s1: first string.
+ * @s2: second string.
+ * @n: maximum number of bytes
+ *
+ * Return: If the function fails - NULL.
+ *
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-   unsigned int x, y, z;
-   char *s;
+	char *concat;
+	unsigned int len = n, index;
 
+	if (s1 == NULL)
+		s1 = "";
 
-   if (s1 == NULL)
-   {
-       x = 0;
-   }
-   else
-   {
-       for (x = 0; s1[x]; ++x)
-           ;
-   }
-   if (s2 == NULL)
-   {
-       y = 0;
-   }
-   else
-   {
-       for (y = 0; s2[y]; ++y)
-           ;
-   }
-   if (y > n)
-       y = n;
-   s = malloc(sizeof(char) * (x + y + 1));
-   if (s == NULL)
-       return (NULL);
-   for (z = 0; z < x; z++)
-       s[z] = s1[z];
-   for (z = 0; z < y; z++)
-       s[z + x] = s2[z];i
+	if (s2 == NULL)
+		s2 = "";
 
-	       s[x + y] = '\0';
-   return (s);
+	for (index = 0; s1[index]; index++)
+		len++;
+
+	concat = malloc(sizeof(char) * (len + 1));
+
+	if (concat == NULL)
+		return (NULL);
+
+	len = 0;
+
+	for (index = 0; s1[index]; index++)
+		concat[len++] = s1[index];
+
+	for (index = 0; s2[index] && index < n; index++)
+		concat[len++] = s2[index];
+
+	concat[len] = '\0';
+
+	return (concat);
 }
-
-
-== == == == = 2-calloc.c ====
-
-
-#include "main.h"
-
-
-/**
-* _calloc - allocates memory for an array of @nmemb elements of
-* @size bytes each and returns a pointer to the allocated memory.
-*
-* @nmemb: allocate memory for array
-* @size: allocate element of size bytes
-*
-* Return: pointer to the allocated memory.
-*/
-void * _calloc(unsigned int nmemb, unsigned int size)
-{
-   char *a;
-   unsigned int b;
-
-
-   if (nmemb == 0 || size == 0)
-       return (NULL);
-   a = malloc(nmemb * size);
-   if (a == NULL)
-       return (NULL);
-   for (b = 0; b < (nmemb * size); b++)
-       a[b] = 0;
-   return (a);
-}
-
